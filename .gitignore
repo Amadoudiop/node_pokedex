@@ -61,6 +61,7 @@ typings/
 
 # Server ignore
 /server/node_modules
+/server/package-lock.json
 
 # Client ignore
 /client/build
