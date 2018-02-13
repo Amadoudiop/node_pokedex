@@ -64,3 +64,6 @@ typings/
 
 # Client ignore
 /client/build
+
+# Base ignore
+.idea
