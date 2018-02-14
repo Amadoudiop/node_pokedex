@@ -65,6 +65,7 @@ typings/
 
 # Client ignore
 /client/build
+/client/node_modules
 
 # Base ignore
-.idea
+.idea/*
