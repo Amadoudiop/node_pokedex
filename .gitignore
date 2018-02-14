@@ -59,4 +59,12 @@ typings/
 # dotenv environment variables file
 .env
 
+# Server ignore
+/server/node_modules
+/server/package-lock.json
 
+# Client ignore
+/client/build
+
+# Base ignore
+.idea
