@@ -11,10 +11,10 @@ router.get('/pokemons', (req, res) => {
 })
 
 router.get('/pokemon/new', (req, res) => {
-    Type.find({}).then.types => {
-        var pokemon = new Pokemon()
-        res.render()
-    }
+    // Type.find({}).then.types => {
+    //     var pokemon = new Pokemon()
+    //     res.render()
+    // }
 })
 
 router.get('/pokemon/:id/edit', (req, res) => {

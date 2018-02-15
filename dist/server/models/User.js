@@ -1,9 +1,11 @@
-const mongoose = require('mongoose')
+'use strict';
 
-const Schema = mongoose.Schema
+var mongoose = require('mongoose');
+
+var Schema = mongoose.Schema;
 //const mongoosePaginate = require('mongoose-paginate')
 
-const userSchema = new Schema({
+var userSchema = new Schema({
         email: { type: String, required: true },
         name: { type: String, required: true },
         password: { type: String, required: true },
@@ -13,11 +15,11 @@ const userSchema = new Schema({
                 niveau: { type: Number },
                 img: { type: String }
         }]
-    },
-    {
-        timestamps: true,
-    })
+}, {
+        timestamps: true
+});
 
 //userSchema.plugin(mongoosePaginate)
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('User', userSchema);
+//# sourceMappingURL=User.js.map

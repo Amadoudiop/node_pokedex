@@ -5,8 +5,8 @@ var mongoose = require('mongoose')
 var pokemonSchema = new mongoose.Schema({
     name: {type: String, unique: true, sparse: true, required: true},
     type: {
-        type: mongoose.Types.objectId,
-        ref: 'Type',
+        type: String //mongoose.Types.objectId,
+        //ref: 'Type',
     },
     niveau: {type: Number, default: 1, required: true},
     img : {type: String, required: true},

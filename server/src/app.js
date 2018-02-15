@@ -8,19 +8,26 @@
 // app.use(bodyParser.json())
 // app.use(cors())
 
-var express = require('express')
-var mongoose = require('mongoose')
+const express = require('express')
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 
 mongoose.connect('mongodb://localhost/pokedex/')
 
-require('models/Pokemon')
-require('models/Type')
+require('./../models/Pokemon')
+//require('./../models/Type')
 
-var app = express()
+const app = express()
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use('/pokemons', require.('/routes/pokemons'))
-app.use('/types', require.('/routes/types'))
+require('./../db')
 
-app.use('/' require('./routes'))
+// app.use('/pokemons', require('/routes/pokemons'))
+// app.use('/types', require('/routes/types'))
+//
+// app.use('/' require('./routes'))
+
+app.use('/api/v1/users', require('./../routes/Users'))
 
 app.listen(process.env.PORT || 8082)
