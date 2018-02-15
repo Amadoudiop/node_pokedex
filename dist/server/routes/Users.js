@@ -72,11 +72,31 @@ var deleteUser = function deleteUser(req, res) {
     });
 };
 
+var addPokemonToUser = function addPokemonToUser(req, res) {
+    var p = req.body;
+    User.findById(req.params.id, function (err, User) {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            User.pokemonsCapture.push(req.body.pokemonsCapture);
+            User.save(function (err, pokemon) {
+                if (err) {
+                    res.status(500).send(err);
+                }
+                res.status(200).send(pokemon);
+            });
+        }
+    }).catch(function (err) {
+        return errorManager.error500(res, err);
+    });
+};
+
 router.get('/', getUsers);
 router.get('/:id', getUser);
 router.post('/', createUser);
 router.put('/:id', editUser);
 router.delete('/:id', deleteUser);
+router.post('/:id/addPokemon', addPokemonToUser);
 
 module.exports = router;
 //# sourceMappingURL=Users.js.map

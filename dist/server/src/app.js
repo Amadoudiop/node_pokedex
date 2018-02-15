@@ -30,7 +30,8 @@ require('./../db');
 //
 // app.use('/' require('./routes'))
 
-app.use('/api/v1/users', require('./../routes/Users'));
+app.use('/users', require('./../routes/Users'));
+app.use('/pokemons', require('./../routes/pokemons'));
 
 app.listen(process.env.PORT || 8082);
 //# sourceMappingURL=app.js.map

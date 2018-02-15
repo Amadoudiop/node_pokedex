@@ -66,11 +66,28 @@ const deleteUser = (req, res) => {
     });
 }
 
+const addPokemonToUser = (req, res) => {
+    const p = req.body
+    User.findById(req.params.id, (err, User) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            User.pokemonsCapture.push(req.body.pokemonsCapture)
+            User.save((err, pokemon) => {
+                if (err) {
+                    res.status(500).send(err)
+                }
+                res.status(200).send(pokemon);
+            });
+        }
+    }).catch(err => errorManager.error500(res, err))
+}
 
 router.get('/', getUsers)
 router.get('/:id', getUser)
 router.post('/', createUser)
 router.put('/:id',  editUser)
 router.delete('/:id', deleteUser)
+router.post('/:id/addPokemon', addPokemonToUser)
 
 module.exports = router
